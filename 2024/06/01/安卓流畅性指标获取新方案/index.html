@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="背景性能狗(perfdog)发布到现在已经有差不多5年多了，业界内对于安卓获取FPS方案除了perfdog外还是只有SurfaceFlinger、GFXInfo。这两个方案对于某些特定场景比如游戏等，还是不能稳定的拿到帧率信息。基于此现状，我花了几天时间研究了下，给出了另外一个方案，在此记录，算是给业界留下一份贡献了。 简单介绍具体的实现逻辑出于对本人劳动成果的保护，不具体解释。但是我能保证相关的">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/%E5%AE%89%E5%8D%93%E6%B5%81%E7%95%85%E6%80%A7%E6%8C%87%E6%A0%87%E8%8E%B7%E5%8F%96%E6%96%B0%E6%96%B9%E6%A1%88/TestFPSBySurfaceFlinger.png">
-<meta property="og:image" content="http://example.com/%E5%AE%89%E5%8D%93%E6%B5%81%E7%95%85%E6%80%A7%E6%8C%87%E6%A0%87%E8%8E%B7%E5%8F%96%E6%96%B0%E6%96%B9%E6%A1%88/TestFPSByGFXInfo.png">
-<meta property="og:image" content="http://example.com/%E5%AE%89%E5%8D%93%E6%B5%81%E7%95%85%E6%80%A7%E6%8C%87%E6%A0%87%E8%8E%B7%E5%8F%96%E6%96%B0%E6%96%B9%E6%A1%88/TestFPSByOMSageFrameTool.png">
+<meta property="og:image" content="http://example.com/TestFPSBySurfaceFlinger.png">
+<meta property="og:image" content="http://example.com/TestFPSByGFXInfo.png">
+<meta property="og:image" content="http://example.com/TestFPSByOMSageFrameTool.png">
 <meta property="article:published_time" content="2024-06-01T09:44:01.000Z">
-<meta property="article:modified_time" content="2024-06-01T10:38:44.746Z">
+<meta property="article:modified_time" content="2024-06-01T10:45:18.451Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="安卓性能">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/%E5%AE%89%E5%8D%93%E6%B5%81%E7%95%85%E6%80%A7%E6%8C%87%E6%A0%87%E8%8E%B7%E5%8F%96%E6%96%B0%E6%96%B9%E6%A1%88/TestFPSBySurfaceFlinger.png">
+<meta name="twitter:image" content="http://example.com/TestFPSBySurfaceFlinger.png">
   
   
   
@@ -283,11 +283,11 @@
 <h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>在fionna的test&#x2F;frame_benchmark_test.go中，我在里面定义了三个用于对比的方法：TestFPSBySurfaceFlinger、TestFPSByGFXInfo、TestFPSByFrameTool，分别对应SurfaceFlinger、GFXInfo、新方案工具的获取方式。</p>
 <p>测试使用机型为iqoo11s，软件为《白尘禁区》（com.dragonli.projectsnow.lhm），三个方法的获取结果为：</p>
 <p><strong>TestFPSBySurfaceFlinger</strong></p>
-<p><img src="/./%E5%AE%89%E5%8D%93%E6%B5%81%E7%95%85%E6%80%A7%E6%8C%87%E6%A0%87%E8%8E%B7%E5%8F%96%E6%96%B0%E6%96%B9%E6%A1%88/TestFPSBySurfaceFlinger.png" srcset="/img/loading.gif" lazyload alt="TestFPSBySurfaceFlinger"></p>
+<p><img src="/TestFPSBySurfaceFlinger.png" srcset="/img/loading.gif" lazyload alt="TestFPSBySurfaceFlinger"></p>
 <p><strong>TestFPSByGFXInfo</strong></p>
-<p><img src="/./%E5%AE%89%E5%8D%93%E6%B5%81%E7%95%85%E6%80%A7%E6%8C%87%E6%A0%87%E8%8E%B7%E5%8F%96%E6%96%B0%E6%96%B9%E6%A1%88/TestFPSByGFXInfo.png" srcset="/img/loading.gif" lazyload alt="TestFPSByGFXInfo"></p>
+<p><img src="/TestFPSByGFXInfo.png" srcset="/img/loading.gif" lazyload alt="TestFPSByGFXInfo"></p>
 <p><strong>TestFPSByOMSageFrameTool</strong></p>
-<p><img src="/./%E5%AE%89%E5%8D%93%E6%B5%81%E7%95%85%E6%80%A7%E6%8C%87%E6%A0%87%E8%8E%B7%E5%8F%96%E6%96%B0%E6%96%B9%E6%A1%88/TestFPSByOMSageFrameTool.png" srcset="/img/loading.gif" lazyload alt="TestFPSByOMSageFrameTool"></p>
+<p><img src="/TestFPSByOMSageFrameTool.png" srcset="/img/loading.gif" lazyload alt="TestFPSByOMSageFrameTool"></p>
 <table>
 <thead>
 <tr>
